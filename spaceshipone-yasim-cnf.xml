@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="spaceshipone-base.xml">
+
+  <sim>
+    <description>SpaceShipOne/White knight (YASim)</description>
+    <flight-model>yasim</flight-model>
+    <aero>spaceshipone-yasim</aero>
+  </sim>
+
+</PropertyList>
+

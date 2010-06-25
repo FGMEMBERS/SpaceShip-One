@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+ 
+    <author>Emmanuel BARANGER (3D/FDM)</author>
+    <status>alpha</status>
+  
+    <fuel-fraction>1.0</fuel-fraction>
+  
+    <sound>
+      <audible>true</audible>
+      <path>Aircraft/SpaceShip-One/Sounds/spaceshipone-sound.xml</path>
+    </sound>
+
+    <model>
+      <path>Aircraft/SpaceShip-One/Models/whiteknight.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+
+    <startup>
+      <splash-texture>Aircraft/SpaceShip-One/spaceshipone-splash.png</splash-texture>
+    </startup>
+
+    <help>
+      <title>Space Ship One</title>
+      <key>
+        <name>d</name>
+        <desc>Open/Close canopy</desc>
+      </key>
+    </help>
+
+    <menubar include="Dialogs/spaceshipone-menu.xml"/>
+
+  </sim>
+
+  <yasim>
+    <spaceshipone>
+      <pilot-lb>128</pilot-lb>
+    </spaceshipone>
+  </yasim>
+
+  <engines>
+    <engine n="0">
+      <engine-num type="int">0</engine-num>
+      <running>true</running>
+    </engine>
+    <engine n="1">
+      <engine-num type="int">1</engine-num>
+      <running>true</running>
+    </engine>
+  </engines>
+
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <tank-num type="int">0</tank-num>
+        <level-gal_us archive="y">2070</level-gal_us>
+      </tank>
+    </fuel>
+  </consumables>
+
+  <input>
+    <keyboard include="Nasal/spaceshipone-keyboard.xml"/>
+  </input>
+ 
+  <nasal>
+    <doors>
+      <file>Aircraft/SpaceShip-One/Nasal/doors.nas</file>
+    </doors>
+    <spaceshipone>    
+      <file>Aircraft/SpaceShip-One/Nasal/liveries.nas</file>
+    </spaceshipone>
+  </nasal>
+
+</PropertyList>
+
