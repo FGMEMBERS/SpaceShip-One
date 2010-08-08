@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Space Ship One 2010 Nguyen Tri Toan Phuc   
+                          Updated by BARANGER Emmanuel 08-08-2010
+
+     Winspan : 25.00 m                        (    82 ft )
+     Lenght  : 15.60 m                        (       ft )
+     Height  :  4.30 m                        (       ft )
+     Masse   : 1200 kg                        (  2640 lb )
+     Engine  : 2 General Electric J85-GE-5 afterburning turbojets
+     Speed   : ?? km/h                        (       kt )
+     Fuel    : 2900 kg                        (  6400 lb )
+-->
+
+<airplane mass="2640">
+
+  <approach speed="100" aoa="12" fuel="0">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+    <control-setting axis="/controls/flight/flaps" value="1"/>
+    <control-setting axis="/controls/gear/gear-down" value="1"/>
+  </approach>
+
+  <cruise speed="1450" alt="19500" fuel="1">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1"/>
+    <control-setting axis="/controls/flight/flaps" value="0"/>
+    <control-setting axis="/controls/gear/gear-down" value="0"/>
+  </cruise>
+
+  <cockpit x="3.611" y="0" z="-0.564"/>
+
+  <!-- Nose -->
+  <fuselage ax=" 5.342" ay="0" az="-0.938" bx="3.442" by="0" bz="-0.938" width="1.763" taper="0.00" midpoint="1"/>
+  <!-- Center -->
+  <fuselage ax=" 3.442" ay="0" az="-0.938" bx="-0.658" by="0" bz="-0.758" width="1.763" taper="0.85" midpoint="0"/>
+  <!-- Rear -->
+  <fuselage ax="-0.658" ay="0" az="-0.758" bx="-2.158" by="0" bz="-0.758" width="1.500" taper="0.60" midpoint="0"/>
+  
+  <wing x="0.861" y="0.75" z="-0.438"
+        chord="4.005"
+        length="1.9"
+        taper="0.84"
+        camber="0.006"
+        sweep="10">
+	<stall aoa="18" width="3" peak="1.3"/>
+        <flap0 start="0.063" end="0.923" lift="1.3" drag="1.5"/>
+        <flap1 start="0" end="0.74" lift="1.2" drag="1.5"/>
+
+        <control-input axis="/controls/flight/flaps" control="FLAP0"/> 
+        <control-input axis="/controls/flight/aileron" control="FLAP1" square="true" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+
+        <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+        <control-output control="FLAP1" prop="/surface-positions/left-aileron-pos-norm" side="left"/>
+        <control-output control="FLAP1" prop="/surface-positions/right-aileron-pos-norm" side="right"/>
+  </wing>
+ 
+  <hstab x="-2.812" y="2.684" z="-0.138"
+         chord="1.422"
+         length="2.032"
+         sweep="8"
+         taper="0.35"
+         effectiveness="2.5">
+         <stall aoa="18" width="4" peak="1.3"/>
+         <flap0 start="0" end="0.74" lift="1.5" drag="1.5"/>
+
+         <control-input axis="/controls/flight/elevator" square="false" control="FLAP0" />
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+    </hstab>		 
+
+  <vstab x="-2.748" y="2.684" z="-0.371"
+         chord="2.830"
+         length="1.7"
+         sweep="29"
+	 taper="0.42">
+         <stall aoa="14" width="4" peak="1.3"/>
+         <flap0 start="0" end="0.9" lift="1.2" drag="1.3"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <vstab x="-2.748" y="-2.684" z="-0.371"
+         chord="2.830"
+         length="1.7"
+         sweep="29"
+	 taper="0.42">
+         <stall aoa="14" width="4" peak="1.3"/>
+         <flap0 start="0" end="0.9" lift="1.2" drag="1.3"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <!-- 
+      N2O/HTPB SpaceDev Hybrid rocket motor 
+      Power  : 16535 lbs
+      Weight : 396 lb
+  -->
+  <jet x="1.142" y="0" z="-0.758"
+       mass="396"
+       thrust="16535">     
+       <actionpt x="-2.158" y="0" z="-0.758"/>
+       <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+  </jet>
+
+  <!-- Front -->
+  <gear x="3.734" y="0" z="-2.262"
+        compression="0.30"
+        spring="1"
+        damp="2"
+        retract-time="5">
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="4"/>
+  </gear>
+
+  <!-- Left -->
+  <gear x="0.233" y="0.992" z="-2.174"
+        compression="0.30"
+        spring="1"
+        damp="2"
+        retract-time="5">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="4"/>
+  </gear>
+
+  <!-- Right -->
+  <gear x="0.233" y="-0.992" z="-2.174"
+        compression="0.30"
+        spring="1"
+        damp="2"
+        retract-time="5">
+        <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+        <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="4"/>
+  </gear>
+
+  <!-- Internal tanks 2 * 3200 lb liter wings -->
+  <tank x="1.8" y="-1.8" z="-0.350" jet="true" capacity="750"/>
+  <tank x="1.8"  y="1.8" z="-0.350" jet="true" capacity="750"/>
+
+  <ballast x="1.4" y="0" z="-1.8" mass="400"/>
+
+</airplane>
+

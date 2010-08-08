@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <PropertyList include="ss1-jsbsim-cnf.xml"> -->
+<PropertyList include="ss1-yasim-cnf.xml">
+
+  <sim>
+    <description>SpaceShipOne</description>
+    <author>Emmanuel BARANGER (3D), Nguyen Tri Toan Phuc (FDM)</author>
+  </sim>
+
+</PropertyList>
+
