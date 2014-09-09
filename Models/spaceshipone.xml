@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>spaceshipone.ac</path>
+
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/SpaceShip-One/Models/Liveries", 10);
+    </load>
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>sso1</object-name>
+    <object-name>patte</object-name>
+    <object-name>sso2</object-name>
+    <object-name>ss1tail</object-name>
+    <object-name>ss1profondeurG</object-name>
+    <object-name>ss1profondeurD</object-name>
+    <object-name>ss1directionG</object-name>
+    <object-name>ss1directionD</object-name>
+
+    <object-name>ss1axeG</object-name>
+    <object-name>ss1roueG</object-name>
+    <object-name>ss1axeD</object-name>
+    <object-name>ss1roueD</object-name>
+    <object-name>ss1trous</object-name>
+    <object-name>ss1trous2</object-name>
+    <object-name>sso5</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>sso6</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>sso1</object-name>
+    <object-name>patte</object-name>
+    <object-name>sso2</object-name>
+    <object-name>ss1tail</object-name>
+    <object-name>ss1profondeurG</object-name>
+    <object-name>ss1profondeurD</object-name>
+    <object-name>ss1directionG</object-name>
+    <object-name>ss1directionD</object-name>
+
+    <object-name>ss1axeG</object-name>
+    <object-name>ss1roueG</object-name>
+    <object-name>ss1axeD</object-name>
+    <object-name>ss1roueD</object-name>
+    <object-name>ss1trous</object-name>
+    <object-name>ss1trous2</object-name>
+    <object-name>sso5</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+<!--
+    <diffuse>
+      <red-prop>diffuse/red</red-prop>
+      <green-prop>diffuse/green</green-prop>
+      <blue-prop>diffuse/blue</blue-prop>
+    </diffuse>
+
+    <ambient>
+      <red-prop>ambient/red</red-prop>
+      <green-prop>ambient/green</green-prop>
+      <blue-prop>ambient/blue</blue-prop>
+    </ambient>
+-->
+    <specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
+
+    <emission>
+      <red-prop>emission/red</red-prop>
+      <green-prop>emission/green</green-prop>
+      <blue-prop>emission/blue</blue-prop>
+    </emission>
+<!--
+    <shininess>
+      <shininess-prop>shininess</shininess-prop>
+    </shininess>
+-->
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <object-name>sso1</object-name>
+    <object-name>patte</object-name>
+    <object-name>sso2</object-name>
+    <object-name>ss1tail</object-name>
+    <object-name>ss1profondeurG</object-name>
+    <object-name>ss1profondeurD</object-name>
+    <object-name>ss1directionG</object-name>
+    <object-name>ss1directionD</object-name>
+  </effect>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>sso6</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>sso6</object-name>
+  </animation>
+
+  <!-- Intérieur -->
+  <model>
+    <path>Aircraft/SpaceShip-One/Models/Interior/interior2.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Relevage de la queue -->
+  <animation>
+    <name>AllTail</name>
+    <object-name>ss1tail</object-name>
+    <object-name>ss1profondeurG</object-name>
+    <object-name>ss1profondeurD</object-name>
+    <object-name>ss1trous2</object-name>
+    <object-name>ss1directionG</object-name>
+    <object-name>ss1directionD</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>AllTail</object-name>
+    <property>surface-positions/flap-pos-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1 </ind><dep> -50 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -0.157 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.360 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- profondeur -->
+  <animation>
+    <name>Profondeur</name>
+    <object-name>ss1profondeurG</object-name>
+    <object-name>ss1profondeurD</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Profondeur</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m>  2.857 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.117 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- Ailerons -->
+  <animation>
+    <type>rotate</type>
+    <object-name>ss1profondeurG</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m>  2.857 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.117 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ss1profondeurD</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m>  2.857 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.117 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <!-- direction -->
+  <animation>
+    <type>rotate</type>
+    <object-name>ss1directionG</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m>  3.712 </x-m>
+      <y-m> -2.624 </y-m>
+      <z-m>  0.236 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ss1directionD</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> 15 </factor>
+    <center>
+      <x-m> 3.712 </x-m>
+      <y-m> 2.624 </y-m>
+      <z-m> 0.236 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Rentrée des roues -->
+  <animation>
+    <type>rotate</type>
+    <object-name>patte</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <factor> 35 </factor>
+    <center>
+      <x-m> -4.359 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.533 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>TrainGauche</name>
+    <object-name>ss1roueG</object-name>
+    <object-name>ss1axeG</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrainGauche</object-name>
+    <property>gear/gear[1]/position-norm</property>
+    <factor> 95 </factor>
+    <center>
+      <x-m> -0.231 </x-m>
+      <y-m> -0.611 </y-m>
+      <z-m> -1.385 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrainGauche</object-name>
+    <property>gear/gear[1]/position-norm</property>
+    <factor> -40 </factor>
+    <center>
+      <x-m> -0.231 </x-m>
+      <y-m> -0.611 </y-m>
+      <z-m> -1.385 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>TrainDroit</name>
+    <object-name>ss1roueD</object-name>
+    <object-name>ss1axeD</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrainDroit</object-name>
+    <property>gear/gear[2]/position-norm</property>
+    <factor> 95 </factor>
+    <center>
+      <x-m> -0.231 </x-m>
+      <y-m>  0.611 </y-m>
+      <z-m> -1.385 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrainDroit</object-name>
+    <property>gear/gear[2]/position-norm</property>
+    <factor> 40 </factor>
+    <center>
+      <x-m> -0.231 </x-m>
+      <y-m>  0.611 </y-m>
+      <z-m> -1.385 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
+
