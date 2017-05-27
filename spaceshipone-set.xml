@@ -6,7 +6,18 @@
   <sim>
     <description>SpaceShipOne/White Knight</description>
     <author>Emmanuel BARANGER (3D/FDM)</author>
+
+    <tags>
+      <tag>spaceship</tag>
+      <tag>2000s</tag>
+      <tag>experimental</tag>
+      <tag>retractable-gear</tag>
+      <tag>supersonic</tag>
+      <tag>rocket</tag>
+    </tags>
+
   </sim>
+
 
 </PropertyList>
 
